@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <title>Let’s test Skrollr!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+/* General */
+body, html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.block {
+    height: 100%;
+    border-box: box-sizing; /* One of my CSS3-favourites */
+}
+
+/* Specifics */
+#block1 {
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+    #block1 p {
+        width: 200px;
+        line-height: 200%;
+        margin-top: 400px;
+    }
+
+#block3 {
+    background-color: #bbb;
+}
+    #block3 div {
+        float: left;
+        height: 50px;
+    }
+    #block3 div:nth-child(1) {
+        width: 100px;
+        margin-left:-400px;
+        background-color: hsla(255,70%,100%,0.9);
+        /* HSLA: Hue, Saturation%, Light%, Alpha (Opacity) */
+    }
+    #block3 div:nth-child(2) {
+        width: 200px;
+        background-color: hsla(200,80%,100%,0.8);
+        border: 5px solid black;
+    }
+    #block3 p {
+        width: 200px;
+        line-height: 200%;
+    }
+</style>
+</head>
+<body>
+
+    <!-- Insert code -->
+    <div class="block" id="block1"
+        data-start="padding-left:20px;"
+        data-500-start="padding-left:400px;"
+    >
+        <p>Some text that we will try and animate in a cool and easy way!</p>
+    </div>
+
+    <div class="block" id="block2">
+        <div
+            data-600-top="width:100px; height:100px; background-color:red;"
+            data-300-top="top:-300px; height:300px; margin-top:0px; background-color:blue;"
+            data-top="margin-top:300px;"
+        >
+            <!-- Empty ^^ -->
+        </div>
+    </div>
+
+    <div class="block" id="block3">
+        <div
+            data-750-top="margin-left:-400px; width:100px;"
+            data-top="margin-left:0px; width:500px;"
+        >
+            <!-- Empty ^^ -->
+        </div>
+        <div
+            data-400-top="background-color:hsla(255,70%,100%,0.1)"
+            data-top="background-color:hsla(255,100%,100%,1.0)"
+        >
+            <!-- Empty ^^ -->
+        </div>
+        <p
+            data-600-top="padding-top:400px; opacity:0;"
+            data-200-top="padding-top:10px; opacity:1;"
+        >
+            Lorem ipsum doler sit amet!
+        </p>
+    </div>
+
+
+    <script type="text/javascript" src="js/skrollr.js"></script>
+    <script>
+        // Start Skrollr
+        window.onload = function() {
+            skrollr.init({
+                forceHeight: false
+            });
+        }
+    </script>
+
+</body>
+</html>
